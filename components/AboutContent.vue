@@ -13,14 +13,13 @@
           <div
             class="absolute -inset-2 bg-gradient-to-r from-yellow-600/20 to-orange-600/20 rounded-lg blur opacity-75"
           ></div>
-          <NuxtImg
-            src="/images/profile-pic.png"
+          <img
+            src="/images/profile-pic.jpeg"
             alt="Thanigaivelen C"
             width="300"
             height="300"
             class="relative rounded-lg shadow-2xl object-cover border-4 border-stone-600/50"
-            format="webp"
-            placeholder
+            loading="lazy"
           />
         </div>
         <div class="flex flex-col items-start w-full mt-8 gap-4 px-4">
@@ -47,7 +46,7 @@
               name="material-symbols:call"
               class="text-stone-100/80 duration-300 transition-all text-2xl"
             />
-            <span class="text-stone-200/90 text-sm">8220233038</span>
+            <span class="text-stone-200/90 text-sm">+91 8220233038</span>
           </div>
           <div class="flex flex-row flex-wrap items-center gap-3 mt-1">
             <Icon
@@ -78,14 +77,13 @@
             <div
               class="absolute -inset-2 bg-gradient-to-r from-yellow-600/20 to-orange-600/20 rounded-lg blur opacity-75"
             ></div>
-            <NuxtImg
+            <img
               src="/images/profile-pic.jpeg"
               alt="Thanigaivelen C"
               width="200"
               height="200"
               class="relative rounded-lg shadow-2xl md:hidden object-cover border-4 border-stone-600/50"
-              format="webp"
-              placeholder
+              loading="lazy"
             />
           </div>
         </div>

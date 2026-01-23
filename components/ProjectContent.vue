@@ -31,7 +31,7 @@
         >
           <div class="flex w-full justify-center mt-2">
             <NuxtImg
-              src="/images/cos-theta.png"
+              src="/images/heypascal.png"
               width="400"
               height="200"
               class="shadow-lg rounded-md"
@@ -65,7 +65,7 @@
         >
           <div class="flex w-full justify-center mt-2">
             <NuxtImg
-              src="/images/heypascal.png"
+              src="/images/cos-theta.png"
               width="400"
               height="200"
               class="shadow-lg rounded-md"

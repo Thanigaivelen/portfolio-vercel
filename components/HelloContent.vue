@@ -23,7 +23,7 @@
       </div>
       <div class="ml-8 mt-2 flex flex-row justify-center items-center gap-1">
         <span class="ml-1">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Thanigaivelen" target="_blank" rel="noopener noreferrer">
             <Icon
               name="uil:github"
               class="text-yellow-700/50 hover:text-gray-500 duration-300 transition-all text-3xl"
