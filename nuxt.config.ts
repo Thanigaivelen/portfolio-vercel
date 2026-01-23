@@ -4,6 +4,11 @@ export default defineNuxtConfig({
     head: {
       title: "Thani Portfolio",
       meta: [{ name: "description", content: "Thani portfolio website" }],
+      link: [
+        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+        { rel: "apple-touch-icon", href: "/favicon.svg" },
+      ],
     },
   },
 
