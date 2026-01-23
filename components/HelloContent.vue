@@ -23,7 +23,12 @@
       </div>
       <div class="ml-8 mt-2 flex flex-row justify-center items-center gap-1">
         <span class="ml-1">
-          <a href="https://github.com/Thanigaivelen" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/Thanigaivelen"
+            target="_blank"
+            rel="noopener noreferrer"
+            @click="handleLinkClick"
+          >
             <Icon
               name="uil:github"
               class="text-yellow-700/50 hover:text-gray-500 duration-300 transition-all text-3xl"
@@ -35,6 +40,7 @@
             href="https://www.linkedin.com/in/thanigaivelen-c-152666205"
             target="_blank"
             rel="noopener noreferrer"
+            @click="handleLinkClick"
           >
             <Icon
               name="simple-icons:linkedin"
@@ -43,7 +49,7 @@
           </a>
         </span>
         <span class="ml-1">
-          <a href="mailto:thanigaivelen2002@gmail.com">
+          <a href="mailto:thanigaivelen2002@gmail.com" @click="handleLinkClick">
             <Icon
               name="material-symbols:mail"
               class="text-yellow-700/50 hover:text-gray-500 duration-300 transition-all text-2xl"
@@ -55,6 +61,12 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const soundStore = useSoundStore();
+
+const handleLinkClick = () => {
+  soundStore.playClickSound();
+};
+</script>
 
 <style></style>

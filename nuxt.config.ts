@@ -25,4 +25,15 @@ export default defineNuxtConfig({
     cssLayer: "base",
   },
   css: [],
+  
+  // Vercel deployment optimizations
+  nitro: {
+    preset: "vercel",
+    compressPublicAssets: true,
+  },
+  
+  // Ensure static assets are properly handled
+  experimental: {
+    payloadExtraction: false,
+  },
 });

@@ -32,6 +32,7 @@
       <div class="flex flex-row gap-6 mt-8">
         <a
           href="mailto:thanigaivelen2002@gmail.com"
+          @click="handleButtonClick"
           class="bg-stone-700/70 hover:bg-stone-600/70 px-6 py-3 rounded-md transition duration-300 text-stone-100 font-medium"
         >
           Say Hello
@@ -40,6 +41,7 @@
           href="https://drive.google.com/file/d/13H83KxM6Q6ssgZpJtFi58NRGpIcAMa6Z/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
+          @click="handleButtonClick"
           class="bg-stone-700/70 hover:bg-stone-600/70 px-6 py-3 rounded-md transition duration-300 text-stone-100 font-medium"
         >
           Get Resume
@@ -51,8 +53,10 @@
 
 <script lang="ts" setup>
 const isCopied = ref(false);
+const soundStore = useSoundStore();
 
 const copyEmail = () => {
+  soundStore.playClickSound();
   const email = "thanigaivelen2002@gmail.com";
   navigator.clipboard.writeText(email).then(() => {
     isCopied.value = true;
@@ -60,6 +64,10 @@ const copyEmail = () => {
       isCopied.value = false;
     }, 3000);
   });
+};
+
+const handleButtonClick = () => {
+  soundStore.playClickSound();
 };
 </script>
 

@@ -34,7 +34,7 @@ It combines modern frontend development tools with immersive 3D visuals to eleva
 
 ```bash
 # Clone the repository
-git clone https://github.com/MingPV/3D-Portfolio.git
+git clone https://github.com/Thanigaivelen/portfolio-vercel.git
 cd 3D-Portfolio
 
 # Install dependencies
@@ -48,11 +48,18 @@ Then open `http://localhost:3000` in your browser.
 
 ---
 
-## 📬 Contact
+## 🚀 Deployment
 
-Feel free to open an issue or pull request for suggestions and contributions.
+### Deploy to Vercel
 
-<img width="1495" alt="image" src="https://github.com/user-attachments/assets/12fd9f40-d9f9-4ebf-b201-622bb58bb1de" />
-<img width="1496" alt="image" src="https://github.com/user-attachments/assets/cf0a47f6-9e5d-4b9d-97ba-b50ed84889f4" />
-<img width="1496" alt="image" src="https://github.com/user-attachments/assets/93b88ca1-1a9e-4b4e-b3fe-6e51e0cb317b" />
-<img width="1493" alt="image" src="https://github.com/user-attachments/assets/d1e31f95-7cc8-4753-9d2f-c6074d342c8e" />
+This project is configured for easy deployment to Vercel:
+
+1. Push your code to GitHub/GitLab/Bitbucket
+2. Import your repository on [Vercel](https://vercel.com)
+3. Vercel will auto-detect Nuxt.js and configure the build
+4. Click "Deploy"
+
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+---
+

@@ -36,6 +36,7 @@
             />
             <a
               href="mailto:thanigaivelen2002@gmail.com"
+              @click="handleLinkClick"
               class="text-stone-200/90 hover:text-stone-100 text-sm transition-colors"
             >
               thanigaivelen2002@gmail.com
@@ -57,6 +58,7 @@
               href="https://www.linkedin.com/in/thanigaivelen-c-152666205"
               target="_blank"
               rel="noopener noreferrer"
+              @click="handleLinkClick"
               class="text-stone-200/90 hover:text-stone-100 text-sm transition-colors"
             >
               LinkedIn Profile
@@ -278,6 +280,11 @@
 
 <script lang="ts" setup>
 const rootDiv = ref<HTMLElement | null>(null);
+const soundStore = useSoundStore();
+
+const handleLinkClick = () => {
+  soundStore.playClickSound();
+};
 
 onMounted(() => {
   if (rootDiv.value) {

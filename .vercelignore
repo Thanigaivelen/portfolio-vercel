@@ -1,0 +1,14 @@
+# Development files
+.nuxt
+.cache
+.DS_Store
+*.log
+
+# Environment files (if any)
+.env.local
+.env.*.local
+
+# IDE files
+.idea
+.vscode
+.fleet

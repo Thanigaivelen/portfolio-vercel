@@ -51,6 +51,7 @@
               href="https://rougeone.dev/"
               target="_blank"
               rel="noopener noreferrer"
+              @click="handleLinkClick"
             >
               Visit Site
               <Icon
@@ -85,6 +86,7 @@
               href="https://heypascal.ai"
               target="_blank"
               rel="noopener noreferrer"
+              @click="handleLinkClick"
             >
               Visit Site
               <Icon
@@ -109,6 +111,11 @@
 
 <script lang="ts" setup>
 const rootDiv = ref<HTMLElement | null>(null);
+const soundStore = useSoundStore();
+
+const handleLinkClick = () => {
+  soundStore.playClickSound();
+};
 
 onMounted(() => {});
 </script>
