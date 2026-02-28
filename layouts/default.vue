@@ -46,6 +46,18 @@
             <!-- Divider -->
             <div class="w-px h-5 bg-surface-700 mx-2" />
 
+            <!-- Day/Night Toggle -->
+            <button
+              class="p-2 rounded-lg text-surface-400 hover:text-white hover:bg-white/5 transition-all duration-300"
+              :aria-label="isNightMode ? 'Switch to day mode' : 'Switch to night mode'"
+              @click="toggleDayNight"
+            >
+              <Icon
+                :name="isNightMode ? 'material-symbols:light-mode' : 'material-symbols:dark-mode'"
+                class="text-lg"
+              />
+            </button>
+
             <!-- Sound Toggle -->
             <button
               class="p-2 rounded-lg text-surface-400 hover:text-white hover:bg-white/5 transition-all duration-300"
@@ -145,6 +157,7 @@
 <script lang="ts" setup>
 const sceneStore = useSceneStore();
 const soundStore = useSoundStore();
+const { isNightMode, toggleDayNight } = useSceneInteraction();
 
 const scrolled = ref(false);
 const mobileMenuOpen = ref(false);
