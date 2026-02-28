@@ -1,123 +1,119 @@
 <template>
-  <div
-    ref="rootDiv"
-    class="flex flex-row absolute left-0 w-full top-0 h-full justify-center items-center duration-500 transition-all"
-  >
-    <div class="flex flex-col flex-1 h-4/5 items-start justify-start">
-      <!-- <img
-        src="/images/mingming.png"
-        class="mt-8 border-white shadow-xl shadow-black/50 rounded-full"
-        alt="MingPV"
-        width="300"
-        height="300"
-        sizes="(max-width: 400px) 100vw, 400px"
-        loading="lazy"
-        placeholder="blur"
-      /> -->
-    </div>
+  <div class="section-container">
     <div
-      class="flex flex-col w-[100%] xl:w-[60%] pt-[10vh] xl:pt-0 h-full xl:mt-0 xl:h-4/5 items-center font-serif bg-stone-700/70 backdrop-blur-md rounded-md pb-6"
+      class="flex flex-col w-full max-w-5xl mt-16 lg:mt-0 h-[85vh] lg:h-[80vh] glass rounded-2xl shadow-2xl overflow-hidden"
     >
-      <div
-        class="w-full my-8 font-serif text-xl md:text-3xl text-stone-200/80 font-bold"
-      >
-        My Projects
-      </div>
-      <div
-        class="w-full h-fit grid grid-cols-1 md:grid-cols-2 gap-4 px-4 overflow-y-scroll"
-      >
-        <div
-          class="bg-stone-900/40 flex flex-col gap-2 items-start rounded-md pb-4 px-2 pt-2"
-        >
-          <div class="flex w-full justify-center mt-2">
-            <NuxtImg
-              src="/images/heypascal.png"
-              width="400"
-              height="200"
-              class="shadow-lg rounded-md"
-              format="webp"
-              placeholder
-            />
-          </div>
-          <div class="ml-8 my-2 text-stone-100/80 font-semibold">
-            Cos-theta - Project Management Platform
-          </div>
-          <div class="ml-4 mr-1 text-stone-100 text-start text-md">
-            Engineered an intuitive project management solution enabling seamless collaboration through integrated chat features, dynamic project pages, and customizable sprint boards to enhance workflow visualization and team productivity. Built-in chat interface for each project node with file attachments and real-time collaboration. Visualize your workflow with customizable sprint boards to create, assign, and track tasks efficiently.
-          </div>
-          <div class="flex w-full h-full justify-end items-end">
-            <a
-              class="flex flex-row justify-end items-center gap-1 pr-4 py-2 underline underline-offset-4 text-sm font-sans hover:text-white/60"
-              href="https://rougeone.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              @click="handleLinkClick"
-            >
-              Visit Site
-              <Icon
-                name="material-symbols:arrow-right-alt"
-                class="duration-300 transition-all text-xl text-stone-200"
+      <div class="flex-1 overflow-y-auto px-4 md:px-8 lg:px-10 pt-8 pb-6">
+        <!-- Section Title -->
+        <h2 class="text-3xl md:text-5xl font-heading font-bold text-white mb-2">
+          Featured <span class="text-gradient">Projects</span>
+        </h2>
+        <p class="text-surface-400 text-sm font-body mb-8">
+          Things I've built that I'm proud of
+        </p>
+
+        <!-- Project Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div
+            v-for="(project, index) in projects"
+            :key="index"
+            class="group glass-light rounded-xl overflow-hidden hover:border-accent/20 transition-all duration-500"
+          >
+            <!-- Image -->
+            <div class="relative overflow-hidden h-40 md:h-48">
+              <NuxtImg
+                :src="project.image"
+                :alt="project.title"
+                width="600"
+                height="300"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                format="webp"
+                placeholder
               />
-            </a>
-          </div>
-        </div>
-        <div
-          class="bg-stone-900/40 flex flex-col gap-2 items-start rounded-md pb-4 px-2 pt-2"
-        >
-          <div class="flex w-full justify-center mt-2">
-            <NuxtImg
-              src="/images/cos-theta.png"
-              width="400"
-              height="200"
-              class="shadow-lg rounded-md"
-              format="webp"
-              placeholder
-            />
-          </div>
-          <div class="ml-8 my-2 text-stone-100/80 font-semibold">
-            heypascal - AI-Powered EdTech Platform
-          </div>
-          <div class="ml-4 mr-1 text-stone-100 text-start text-md">
-            Built an AI-powered EdTech platform serving teachers, students, and parents, enabling rapid lesson planning, intelligent student tutoring, and parental engagement tools. Developed educator toolkit for generating lessons, worksheets, rubrics, and assessments in under a minute with integrated Google Workspace export. Implemented student learning mode with AI tutoring providing step-by-step explanations, guided practice, and built-in safety guardrails for responsible AI usage.
-          </div>
-          <div class="flex w-full h-full justify-end items-end">
-            <a
-              class="flex flex-row justify-end items-center gap-1 pr-4 py-2 underline underline-offset-4 text-sm font-sans hover:text-white/60"
-              href="https://heypascal.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              @click="handleLinkClick"
-            >
-              Visit Site
-              <Icon
-                name="material-symbols:arrow-right-alt"
-                class="duration-300 transition-all text-xl text-stone-200"
-              />
-            </a>
+              <!-- Overlay on hover -->
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-950/80 via-surface-950/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+
+              <!-- Badge -->
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-lg bg-surface-950/60 backdrop-blur-sm text-xs font-mono text-surface-300 border border-surface-700/30">
+                  {{ project.tag }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-4 md:p-5">
+              <h3 class="font-heading font-bold text-white text-base md:text-lg mb-1 group-hover:text-accent-light transition-colors duration-300">
+                {{ project.title }}
+              </h3>
+              <p class="text-surface-400 text-xs md:text-sm leading-relaxed mb-4 line-clamp-3">
+                {{ project.description }}
+              </p>
+
+              <!-- Tech Stack -->
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  v-for="tech in project.tech"
+                  :key="tech"
+                  class="px-2 py-0.5 rounded text-xs font-mono text-surface-400 bg-surface-800/50"
+                >
+                  {{ tech }}
+                </span>
+              </div>
+
+              <!-- Link -->
+              <a
+                :href="project.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-sm font-medium text-accent-light hover:text-accent hover-underline transition-colors duration-300"
+                @click="handleLinkClick"
+              >
+                Visit Project
+                <Icon name="material-symbols:arrow-outward" class="text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="xl:flex flex-col hidden w-[5%] h-4/5 justify-center items-center"
-    >
-      <Icon
-        name="hugeicons:vertical-scroll-point"
-        class="duration-300 transition-all text-4xl text-stone-700/70 animate-pulse"
-      />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-const rootDiv = ref<HTMLElement | null>(null);
 const soundStore = useSoundStore();
 
 const handleLinkClick = () => {
   soundStore.playClickSound();
 };
 
-onMounted(() => {});
-</script>
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  tag: string;
+  tech: string[];
+}
 
-<style></style>
+const projects: Project[] = [
+  {
+    title: "Cos-theta — Project Management Platform",
+    description:
+      "Engineered an intuitive project management solution with integrated chat, dynamic project pages, file attachments, and customizable sprint boards for enhanced workflow visualization and team productivity.",
+    image: "/images/cos-theta.png",
+    url: "https://rougeone.dev/",
+    tag: "SaaS Platform",
+    tech: ["React", "Node.js", "MongoDB", "WebSockets", "Sprint Boards"],
+  },
+  {
+    title: "HeyPascal — AI-Powered EdTech",
+    description:
+      "Built an AI-powered EdTech platform serving teachers, students, and parents. Enables rapid lesson planning, intelligent tutoring with step-by-step explanations, and parental engagement tools with safety guardrails.",
+    image: "/images/heypascal.png",
+    url: "https://heypascal.ai",
+    tag: "AI / EdTech",
+    tech: ["Next.js", "LangChain", "AI Agents", "Google Workspace", "Stripe"],
+  },
+];
+</script>

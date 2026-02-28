@@ -1,296 +1,168 @@
 <template>
-  <div
-    ref="rootDiv"
-    class="flex flex-row absolute left-0 w-full top-0 h-full justify-center items-center gap-12 duration-500 transition-all"
-  >
+  <div class="section-container">
     <div
-      class="flex flex-row w-[100%] mt-[10vh] lg:mt-0 lg:w-[85%] lg:ml-12 h-full lg:h-4/5 items-start justify-center font-serif bg-stone-700/70 backdrop-blur-md rounded-lg shadow-xl"
+      class="flex flex-row w-full max-w-6xl mt-16 lg:mt-0 h-[85vh] lg:h-[80vh] glass rounded-2xl shadow-2xl overflow-hidden"
     >
-      <div
-        class="w-1/3 h-full pt-8 hidden md:flex flex-col items-center justify-start"
-      >
-        <div class="relative">
-          <div
-            class="absolute -inset-2 bg-gradient-to-r from-yellow-600/20 to-orange-600/20 rounded-lg blur opacity-75"
-          ></div>
+      <!-- Sidebar (Desktop) -->
+      <aside class="w-[280px] min-w-[280px] hidden md:flex flex-col items-center pt-8 pb-6 px-6 border-r border-surface-700/30">
+        <!-- Profile Image -->
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-r from-amber-500/30 to-orange-500/30 rounded-2xl blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
           <img
             src="/images/profile-pic.jpeg"
             alt="Thanigaivelen C"
-            width="300"
-            height="300"
-            class="relative rounded-lg shadow-2xl object-cover border-4 border-stone-600/50"
+            width="180"
+            height="180"
+            class="relative rounded-2xl shadow-xl object-cover border-2 border-surface-600/40"
             loading="lazy"
           />
         </div>
-        <div class="flex flex-col items-start w-full mt-8 gap-4 px-4">
-          <div class="font-bold text-stone-100 text-lg">
-            Name: <span class="font-normal">Thanigaivelen C</span>
-          </div>
-          <div class="font-bold text-stone-100 text-sm">
-            Location: <span class="font-normal">Chennai, TamilNadu, India</span>
-          </div>
-          <div class="flex flex-row items-center gap-3 mt-2">
-            <Icon
-              name="material-symbols:mail"
-              class="text-stone-100/80 duration-300 transition-all text-2xl"
-            />
-            <a
-              href="mailto:thanigaivelen2002@gmail.com"
-              @click="handleLinkClick"
-              class="text-stone-200/90 hover:text-stone-100 text-sm transition-colors"
-            >
-              thanigaivelen2002@gmail.com
-            </a>
-          </div>
-          <div class="flex flex-row items-center gap-3 mt-1">
-            <Icon
-              name="material-symbols:call"
-              class="text-stone-100/80 duration-300 transition-all text-2xl"
-            />
-            <span class="text-stone-200/90 text-sm">+91 8220233038</span>
-          </div>
-          <div class="flex flex-row flex-wrap items-center gap-3 mt-1">
-            <Icon
-              name="devicon:linkedin"
-              class="duration-300 transition-all text-2xl text-stone-100/80 hover:text-blue-400"
-            />
-            <a
-              href="https://www.linkedin.com/in/thanigaivelen-c-152666205"
-              target="_blank"
-              rel="noopener noreferrer"
-              @click="handleLinkClick"
-              class="text-stone-200/90 hover:text-stone-100 text-sm transition-colors"
-            >
-              LinkedIn Profile
-            </a>
-          </div>
+
+        <!-- Info Cards -->
+        <div class="flex flex-col items-start w-full mt-6 gap-3">
+          <h3 class="font-heading font-bold text-white text-lg">Thanigaivelen C</h3>
+          <p class="text-surface-400 text-sm flex items-center gap-2">
+            <Icon name="material-symbols:location-on-outline" class="text-accent/70" />
+            Chennai, Tamil Nadu, India
+          </p>
+
+          <div class="w-full h-px bg-surface-700/40 my-2" />
+
+          <a
+            href="mailto:thanigaivelen2002@gmail.com"
+            class="flex items-center gap-2 text-surface-300 text-sm hover:text-accent-light transition-colors w-full truncate"
+            @click="handleLinkClick"
+          >
+            <Icon name="material-symbols:mail-outline" class="text-accent/70 flex-shrink-0" />
+            thanigaivelen2002@gmail.com
+          </a>
+
+          <span class="flex items-center gap-2 text-surface-300 text-sm">
+            <Icon name="material-symbols:call-outline" class="text-accent/70 flex-shrink-0" />
+            +91 8220233038
+          </span>
+
+          <a
+            href="https://www.linkedin.com/in/thanigaivelen-c-152666205"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-surface-300 text-sm hover:text-accent-light transition-colors"
+            @click="handleLinkClick"
+          >
+            <Icon name="devicon:linkedin" class="flex-shrink-0" />
+            LinkedIn Profile
+          </a>
         </div>
-      </div>
-      <div
-        class="w-full mx-4 md:w-2/3 h-full flex flex-col justify-start md:mx-6 pt-12 pb-10 overflow-y-auto"
-      >
-        <div
-          class="text-2xl md:text-4xl xl:text-7xl font-bold mb-6 text-stone-300/90"
-        >
-          About Me
-        </div>
-        <div class="flex flex-row w-full justify-center mb-6">
+      </aside>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-y-auto px-4 md:px-8 pt-8 pb-6">
+        <!-- Mobile Profile Header -->
+        <div class="flex md:hidden items-center gap-4 mb-6">
           <div class="relative">
-            <div
-              class="absolute -inset-2 bg-gradient-to-r from-yellow-600/20 to-orange-600/20 rounded-lg blur opacity-75"
-            ></div>
+            <div class="absolute -inset-1 bg-gradient-to-r from-amber-500/30 to-orange-500/30 rounded-xl blur-sm opacity-60" />
             <img
               src="/images/profile-pic.jpeg"
               alt="Thanigaivelen C"
-              width="200"
-              height="200"
-              class="relative rounded-lg shadow-2xl md:hidden object-cover border-4 border-stone-600/50"
+              width="80"
+              height="80"
+              class="relative rounded-xl shadow-lg object-cover border border-surface-600/40"
               loading="lazy"
             />
           </div>
+          <div>
+            <h2 class="font-heading font-bold text-white text-xl">About Me</h2>
+            <p class="text-surface-400 text-sm">Thanigaivelen C</p>
+          </div>
         </div>
-        <div
-          class="md:ml-4 mt-2 text-stone-200/80 text-start text-sm md:text-base lg:text-lg leading-relaxed bg-stone-900/30 rounded-lg p-4 md:p-6"
-        >
-          A passionate software developer with hands-on experience in automation,
-          front-end development, and creating user-friendly web applications using
-          MERN stack. Proficient in SQL, JavaScript, HTML, and CSS with expertise in
-          designing and implementing RESTful APIs, integrating various data sources,
-          and building internal tools such as dashboards, admin panels via both
-          Retool and Web, and analytical applications. Experienced in AI/ML
-          integration, having built AI-powered platforms using langchain and
-          implemented machine learning solutions.
+
+        <!-- Section Title (Desktop) -->
+        <h2 class="hidden md:block text-3xl lg:text-5xl font-heading font-bold text-white mb-6">
+          About <span class="text-gradient">Me</span>
+        </h2>
+
+        <!-- Bio -->
+        <div class="glass-light rounded-xl p-4 md:p-6 mb-6">
+          <p class="text-surface-200 text-sm md:text-base leading-relaxed font-body">
+            A passionate software developer with hands-on experience in automation,
+            front-end development, and creating user-friendly web applications using
+            the MERN stack. Proficient in SQL, JavaScript, HTML, and CSS with expertise
+            in designing RESTful APIs, integrating data sources, and building internal
+            tools — dashboards, admin panels, and analytical applications via Retool
+            and the web. Experienced in AI/ML integration, having built AI-powered
+            platforms using LangChain and implemented machine learning solutions.
+          </p>
         </div>
-        <div
-          class="w-full h-full bg-gradient-to-br from-stone-900/50 to-stone-800/30 mt-6 flex flex-col gap-5 justify-start items-start rounded-lg p-4 md:p-6 border border-stone-600/30"
-        >
-          <div
-            class="my-2 mx-2 md:mx-4 w-full flex justify-start items-start flex-col"
-          >
-            <div class="font-bold text-stone-200 text-lg md:text-xl mb-3 flex items-center gap-2">
-              <Icon name="material-symbols:code" class="text-yellow-500/80" />
-              Technologies & Skills
-            </div>
-            <div class="flex flex-col items-start w-full">
-              <div
-                class="flex flex-wrap gap-2 lg:gap-3 font-semibold font-sans text-xs md:text-sm lg:text-base ml-2 text-stone-300"
-              >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >DevOps</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Django</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Next.js</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >ReactJS</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Firebase</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Flutter</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Git</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Github</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Java</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Stripe</span
-                >
-              </div>
-              <div
-                class="flex flex-wrap gap-2 lg:gap-3 font-semibold font-sans text-xs md:text-sm lg:text-base ml-2 text-stone-300 mt-2"
-              >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Langchain</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Extension</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Agents</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Machine Learning</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Retool</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >PHP</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Postman</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >SQL</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >JavaScript</span
-                >
-              </div>
-              <div
-                class="flex flex-wrap gap-2 lg:gap-3 font-semibold font-sans text-xs md:text-sm lg:text-base ml-2 text-stone-300 mt-2"
-              >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >AWS</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Prisma</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Postgres</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >MongoDB</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Python</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >ExpressJs</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >GraphQL</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >RESTful</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >Workflow automation</span
-                >
-              </div>
-              <div
-                class="flex flex-wrap gap-2 lg:gap-3 font-semibold font-sans text-xs md:text-sm lg:text-base ml-2 text-stone-300 mt-2"
-              >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >CI/CD</span
-                >
-                <span
-                  class="bg-stone-700/50 px-3 py-1.5 rounded-md hover:bg-stone-600/50 transition-colors"
-                  >RAG</span
-                >
+
+        <!-- Skills -->
+        <div class="mb-6">
+          <h3 class="font-heading font-semibold text-white text-lg mb-4 flex items-center gap-2">
+            <Icon name="material-symbols:code" class="text-accent" />
+            Technologies & Skills
+          </h3>
+          <div class="flex flex-col gap-3">
+            <div v-for="group in skillGroups" :key="group.category">
+              <p class="text-xs font-mono text-surface-500 uppercase tracking-wider mb-2">{{ group.category }}</p>
+              <div class="flex flex-wrap gap-2">
+                <span v-for="skill in group.skills" :key="skill" class="skill-tag">
+                  {{ skill }}
+                </span>
               </div>
             </div>
           </div>
-          <div
-            class="my-2 mx-2 md:mx-4 w-full flex justify-start items-start flex-col border-t border-stone-600/30 pt-4"
-          >
-            <div class="font-bold text-stone-200 text-lg md:text-xl mb-3 flex items-center gap-2">
-              <Icon name="material-symbols:school" class="text-yellow-500/80" />
-              Education
-            </div>
-            <div class="ml-2 text-stone-300 text-sm md:text-base lg:text-lg">
-              <div class="font-semibold text-stone-200 mb-1">
-                Bachelors in Technology
+        </div>
+
+        <!-- Education -->
+        <div>
+          <h3 class="font-heading font-semibold text-white text-lg mb-4 flex items-center gap-2">
+            <Icon name="material-symbols:school-outline" class="text-accent" />
+            Education
+          </h3>
+          <div class="glass-light rounded-xl p-4">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-1">
+              <div>
+                <p class="font-heading font-semibold text-white">Bachelor of Technology</p>
+                <p class="text-surface-300 text-sm">Government College of Technology, Coimbatore</p>
               </div>
-              <div class="text-stone-300/80">
-                Government College Of Technology, Coimbatore, India
-              </div>
-              <div class="text-stone-400/70 text-sm mt-1">
-                06/2020 - 05/2024 • CGPA: 8.5
+              <div class="flex items-center gap-3 text-sm">
+                <span class="text-surface-400 font-mono">2020 - 2024</span>
+                <span class="px-2 py-0.5 rounded-md bg-accent/10 text-accent-light text-xs font-medium">CGPA: 8.5</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="lg:flex flex-col hidden lg:w-[15%] h-4/5 items-start justify-start"
-    ></div>
   </div>
 </template>
 
 <script lang="ts" setup>
-const rootDiv = ref<HTMLElement | null>(null);
 const soundStore = useSoundStore();
 
 const handleLinkClick = () => {
   soundStore.playClickSound();
 };
 
-onMounted(() => {
-  if (rootDiv.value) {
-    // Animation logic can be added here if needed
-  }
-});
+const skillGroups = [
+  {
+    category: "Languages",
+    skills: ["JavaScript", "TypeScript", "Python", "Java", "SQL", "PHP"],
+  },
+  {
+    category: "Frontend",
+    skills: ["React.js", "Next.js", "Vue.js", "Flutter", "Tailwind CSS"],
+  },
+  {
+    category: "Backend & Database",
+    skills: ["Node.js", "Express.js", "Django", "GraphQL", "RESTful APIs", "MongoDB", "PostgreSQL", "Prisma", "Firebase"],
+  },
+  {
+    category: "AI/ML & Automation",
+    skills: ["LangChain", "RAG", "AI Agents", "Machine Learning", "Workflow Automation", "CI/CD"],
+  },
+  {
+    category: "Cloud & Tools",
+    skills: ["AWS", "DevOps", "Git", "GitHub", "Retool", "Postman", "Stripe", "Chrome Extensions"],
+  },
+];
 </script>
-
-<style></style>

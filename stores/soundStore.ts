@@ -3,8 +3,8 @@ import { defineStore } from "pinia";
 export const useSoundStore = defineStore("sound", {
   state: () => ({
     isMuted: false,
-    backgroundVolume: 0.3, // 30% volume for background music
-    clickVolume: 0.5, // 50% volume for click sounds
+    backgroundVolume: 0.3,
+    clickVolume: 0.5,
   }),
 
   actions: {
@@ -19,28 +19,21 @@ export const useSoundStore = defineStore("sound", {
 
     playBackgroundMusic() {
       if (typeof window === "undefined") return;
-      
-      const bgMusic = document.getElementById(
-        "background-music"
-      ) as HTMLAudioElement;
-      if (bgMusic) {
+
+      const bgMusic = document.getElementById("background-music") as HTMLAudioElement | null;
+      if (bgMusic && !this.isMuted) {
         bgMusic.volume = this.backgroundVolume;
         bgMusic.loop = true;
-        if (!this.isMuted) {
-          bgMusic.play().catch((error) => {
-            // Silently handle autoplay restrictions
-            console.log("Autoplay prevented:", error);
-          });
-        }
+        bgMusic.play().catch(() => {
+          // Silently handle autoplay restrictions
+        });
       }
     },
 
     pauseBackgroundMusic() {
       if (typeof window === "undefined") return;
-      
-      const bgMusic = document.getElementById(
-        "background-music"
-      ) as HTMLAudioElement;
+
+      const bgMusic = document.getElementById("background-music") as HTMLAudioElement | null;
       if (bgMusic) {
         bgMusic.pause();
       }
@@ -49,29 +42,28 @@ export const useSoundStore = defineStore("sound", {
     playClickSound() {
       if (this.isMuted || typeof window === "undefined") return;
 
-      const clickSound = document.getElementById(
-        "click-sound"
-      ) as HTMLAudioElement;
+      const clickSound = document.getElementById("click-sound") as HTMLAudioElement | null;
       if (clickSound) {
         clickSound.volume = this.clickVolume;
-        clickSound.currentTime = 0; // Reset to start
-        clickSound.play().catch((error) => {
-          // Fallback: Generate a simple beep sound if file doesn't exist
+        clickSound.currentTime = 0;
+        clickSound.play().catch(() => {
           this.playFallbackClickSound();
         });
       } else {
-        // Fallback if audio element doesn't exist
         this.playFallbackClickSound();
       }
     },
 
     playFallbackClickSound() {
-      // Generate a simple click sound using Web Audio API as fallback
       if (typeof window === "undefined") return;
-      
+
       try {
-        const audioContext = new (window.AudioContext ||
-          (window as any).webkitAudioContext)();
+        const AudioCtx =
+          window.AudioContext ||
+          (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+        if (!AudioCtx) return;
+
+        const audioContext = new AudioCtx();
         const oscillator = audioContext.createOscillator();
         const gainNode = audioContext.createGain();
 
@@ -82,14 +74,11 @@ export const useSoundStore = defineStore("sound", {
         oscillator.type = "sine";
 
         gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(
-          0.01,
-          audioContext.currentTime + 0.1
-        );
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
 
         oscillator.start(audioContext.currentTime);
         oscillator.stop(audioContext.currentTime + 0.1);
-      } catch (error) {
+      } catch {
         // Silently fail if Web Audio API is not supported
       }
     },

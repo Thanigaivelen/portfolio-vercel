@@ -1,18 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/consistent-type-imports */
 import { defineStore } from "pinia";
-import * as THREE from "three";
+import type * as THREE from "three";
+import type { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import gsap from "gsap";
+
+interface CameraPosition {
+  position: { x: number; y: number; z: number };
+  target: { x: number; y: number; z: number };
+}
 
 export const useSceneStore = defineStore("scene", {
   state: () => ({
     currentSection: 0,
     camera: null as THREE.PerspectiveCamera | null,
-    controls: null as any,
-    cameraPositions: [] as {
-      position: { x: number; y: number; z: number };
-      target: { x: number; y: number; z: number };
-    }[],
+    controls: null as OrbitControls | null,
+    cameraPositions: [] as CameraPosition[],
   }),
 
   actions: {
@@ -20,29 +21,17 @@ export const useSceneStore = defineStore("scene", {
       this.camera = camera;
     },
 
-    setControls(controls: any) {
+    setControls(controls: OrbitControls) {
       this.controls = controls;
     },
 
-    setCameraPositions(
-      positions: {
-        position: { x: number; y: number; z: number };
-        target: { x: number; y: number; z: number };
-      }[]
-    ) {
+    setCameraPositions(positions: CameraPosition[]) {
       this.cameraPositions = positions;
     },
 
     setSection(index: number) {
-      if (index < 0 || index >= this.cameraPositions.length) {
-        console.warn(`Section ${index} is out of bounds.`);
-        return;
-      }
-
-      if (index === this.currentSection) {
-        console.info(`Already in section ${index}.`);
-        return;
-      }
+      if (index < 0 || index >= this.cameraPositions.length) return;
+      if (index === this.currentSection) return;
 
       this.currentSection = index;
       this.moveCameraToCurrentSection();
@@ -52,8 +41,6 @@ export const useSceneStore = defineStore("scene", {
       if (this.currentSection < this.cameraPositions.length - 1) {
         this.currentSection++;
         this.moveCameraToCurrentSection();
-      } else {
-        console.info("Already at last section.");
       }
     },
 
@@ -61,26 +48,15 @@ export const useSceneStore = defineStore("scene", {
       if (this.currentSection > 0) {
         this.currentSection--;
         this.moveCameraToCurrentSection();
-      } else {
-        console.info("Already at first section.");
       }
     },
 
     moveCameraToCurrentSection() {
-      if (!this.camera || !this.controls) {
-        console.warn("Camera or controls not set yet.");
-        return;
-      }
+      if (!this.camera || !this.controls) return;
 
       const target = this.cameraPositions[this.currentSection];
-      if (!target) {
-        console.warn(
-          `No camera position found for section ${this.currentSection}`
-        );
-        return;
-      }
+      if (!target) return;
 
-      // Animate camera position
       gsap.to(this.camera.position, {
         x: target.position.x,
         y: target.position.y,
@@ -89,7 +65,6 @@ export const useSceneStore = defineStore("scene", {
         ease: "power2.out",
       });
 
-      // Animate camera lookAt target
       const lookAt = {
         x: this.controls.target.x,
         y: this.controls.target.y,
@@ -103,8 +78,8 @@ export const useSceneStore = defineStore("scene", {
         duration: 1.5,
         ease: "power2.out",
         onUpdate: () => {
-          this.controls.target.set(lookAt.x, lookAt.y, lookAt.z);
-          this.controls.update();
+          this.controls?.target.set(lookAt.x, lookAt.y, lookAt.z);
+          this.controls?.update();
         },
       });
     },

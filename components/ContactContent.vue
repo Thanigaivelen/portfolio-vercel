@@ -1,52 +1,82 @@
 <template>
-  <div class="absolute w-full h-full flex flex-col justify-center items-center">
-    <div
-      class="flex flex-col w-[90%] md:w-[80%] xl:w-[60%] h-fit py-8 md:py-16 xl:py-24 px-6 md:px-16 xl:px-32 items-center justify-center shadow-lg shadow-black/30 backdrop-blur-md"
-    >
-      <div
-        class="text-stone-800/70 text-2xl md:text-3xl xl:text-6xl font-serif font-bold"
-      >
-        Get in touch
+  <div class="section-container">
+    <div class="flex flex-col items-center justify-center w-full max-w-2xl mx-auto text-center">
+      <!-- Glass Card -->
+      <div class="glass rounded-2xl px-8 py-12 md:px-16 md:py-16 w-full shadow-2xl">
+        <!-- Heading -->
+        <p class="text-sm font-mono text-accent-light tracking-wider uppercase mb-3">
+          What's next?
+        </p>
+        <h2 class="text-3xl md:text-5xl font-heading font-bold text-white mb-4">
+          Get In <span class="text-gradient">Touch</span>
+        </h2>
+        <p class="text-surface-400 text-sm md:text-base font-body leading-relaxed max-w-md mx-auto mb-8">
+          I'm always excited to connect, hear about new ideas, and explore
+          potential opportunities. Feel free to reach out — let's build something great together.
+        </p>
+
+        <!-- Email with Copy -->
+        <div class="inline-flex items-center gap-3 px-4 py-3 rounded-xl glass-light mb-8">
+          <Icon name="material-symbols:mail-outline" class="text-accent text-lg flex-shrink-0" />
+          <span class="text-surface-200 text-sm md:text-base font-mono">
+            thanigaivelen2002@gmail.com
+          </span>
+          <button
+            class="p-1.5 rounded-lg hover:bg-white/10 transition-colors duration-300"
+            :aria-label="isCopied ? 'Email copied' : 'Copy email'"
+            @click="copyEmail"
+          >
+            <Icon
+              :name="isCopied ? 'material-symbols:check-circle' : 'tabler:copy'"
+              class="text-lg transition-colors duration-300"
+              :class="isCopied ? 'text-green-400' : 'text-surface-400 hover:text-white'"
+            />
+          </button>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a
+            href="mailto:thanigaivelen2002@gmail.com"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent hover:bg-accent-dark text-white font-medium text-sm transition-all duration-300 shadow-lg shadow-accent/20 hover:shadow-accent/30"
+            @click="handleButtonClick"
+          >
+            <Icon name="material-symbols:send" class="text-base" />
+            Say Hello
+          </a>
+          <a
+            href="https://drive.google.com/file/d/13H83KxM6Q6ssgZpJtFi58NRGpIcAMa6Z/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-light text-surface-200 font-medium text-sm hover:text-white hover:border-accent/30 transition-all duration-300"
+            @click="handleButtonClick"
+          >
+            <Icon name="material-symbols:download" class="text-base" />
+            Get Resume
+          </a>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex items-center justify-center gap-4 mt-8 pt-6 border-t border-surface-700/30">
+          <a
+            v-for="social in socialLinks"
+            :key="social.name"
+            :href="social.url"
+            :target="social.external ? '_blank' : undefined"
+            :rel="social.external ? 'noopener noreferrer' : undefined"
+            :aria-label="social.name"
+            class="flex items-center justify-center w-10 h-10 rounded-xl text-surface-400 hover:text-accent-light hover:bg-accent-glow transition-all duration-300"
+            @click="handleButtonClick"
+          >
+            <Icon :name="social.icon" class="text-xl" />
+          </a>
+        </div>
       </div>
-      <div class="text-stone-700/60 mt-6 text-sm md:text-lg">
-        I'm always excited to make new connections, hear about new ideas, and
-        explore potential opportunities, so please feel free to reach out to me
-        at
-      </div>
-      <!-- Email + Copy Button -->
-      <div class="flex items-center gap-2 mt-6 justify-center">
-        <span class="text-stone-800/70">thanigaivelen2002@gmail.com</span>
-        <button class="transition flex justify-center" @click="copyEmail">
-          <Icon
-            v-show="!isCopied"
-            name="tabler:copy"
-            class="text-stone-700/70 duration-300 transition-all text-xl hover:text-stone-800"
-          />
-          <Icon
-            v-show="isCopied"
-            name="tabler:copy-check"
-            class="text-stone-700/70 duration-300 transition-all text-xl text-green-600"
-          />
-        </button>
-      </div>
-      <div class="flex flex-row gap-6 mt-8">
-        <a
-          href="mailto:thanigaivelen2002@gmail.com"
-          @click="handleButtonClick"
-          class="bg-stone-700/70 hover:bg-stone-600/70 px-6 py-3 rounded-md transition duration-300 text-stone-100 font-medium"
-        >
-          Say Hello
-        </a>
-        <a
-          href="https://drive.google.com/file/d/13H83KxM6Q6ssgZpJtFi58NRGpIcAMa6Z/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          @click="handleButtonClick"
-          class="bg-stone-700/70 hover:bg-stone-600/70 px-6 py-3 rounded-md transition duration-300 text-stone-100 font-medium"
-        >
-          Get Resume
-        </a>
-      </div>
+
+      <!-- Footer -->
+      <p class="mt-6 text-surface-600 text-xs font-mono">
+        Designed & Built by Thanigaivelen C
+      </p>
     </div>
   </div>
 </template>
@@ -55,10 +85,15 @@
 const isCopied = ref(false);
 const soundStore = useSoundStore();
 
+const socialLinks = [
+  { name: "GitHub", icon: "uil:github", url: "https://github.com/Thanigaivelen", external: true },
+  { name: "LinkedIn", icon: "simple-icons:linkedin", url: "https://www.linkedin.com/in/thanigaivelen-c-152666205", external: true },
+  { name: "Email", icon: "material-symbols:mail", url: "mailto:thanigaivelen2002@gmail.com", external: false },
+];
+
 const copyEmail = () => {
   soundStore.playClickSound();
-  const email = "thanigaivelen2002@gmail.com";
-  navigator.clipboard.writeText(email).then(() => {
+  navigator.clipboard.writeText("thanigaivelen2002@gmail.com").then(() => {
     isCopied.value = true;
     setTimeout(() => {
       isCopied.value = false;
@@ -70,5 +105,3 @@ const handleButtonClick = () => {
   soundStore.playClickSound();
 };
 </script>
-
-<style></style>

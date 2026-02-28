@@ -1,251 +1,100 @@
 <template>
-  <div
-    ref="rootDiv"
-    class="flex flex-row absolute left-0 w-full top-0 h-full justify-center items-center gap-12 duration-500 transition-all"
-  >
+  <div class="section-container">
     <div
-      class="flex flex-col w-[90%] md:w-[80%] ml-4 md:ml-12 h-full md:h-4/5 items-start justify-start font-serif bg-stone-700/70 backdrop-blur-md rounded-md overflow-y-auto"
+      class="flex flex-col w-full max-w-5xl mt-16 lg:mt-0 h-[85vh] lg:h-[80vh] glass rounded-2xl shadow-2xl overflow-hidden"
     >
-      <div class="w-full pt-8 pb-6 px-6">
-        <div
-          class="text-3xl md:text-5xl xl:text-7xl font-bold mb-8 text-stone-300/90"
-        >
-          Work Experience
-        </div>
-        <div class="flex flex-col gap-8 w-full">
-          <!-- Toolpioneers -->
-          <div
-            class="bg-gradient-to-br from-stone-900/60 to-stone-800/40 flex flex-col md:flex-row gap-6 items-start rounded-lg p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-stone-600/30"
-          >
-            <div class="flex-shrink-0">
-              <div class="w-28 h-28 bg-white rounded-lg p-3 flex items-center justify-center shadow-md">
-                <img
-                  src="https://static.wixstatic.com/media/cc867e_1dfa4e3201be415693fd297f0b183cc0~mv2.png"
-                  alt="Toolpioneers Logo"
-                  class="w-full h-full object-contain"
-                  onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23ccc%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2214%22%3EToolpioneers%3C/text%3E%3C/svg%3E'"
-                />
-              </div>
-            </div>
-            <div class="flex-1">
-              <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-3 gap-2">
-                <div>
-                  <h3 class="text-xl md:text-2xl font-bold text-stone-100 mb-1">
-                    Software/Retool Developer Engineer
-                  </h3>
-                  <h4 class="text-lg md:text-xl text-stone-200/90 font-semibold">
-                    Toolpioneers
-                  </h4>
-                </div>
-                <div class="flex flex-col items-start md:items-end">
-                  <div class="text-stone-300/80 text-sm md:text-base font-medium bg-stone-800/50 px-3 py-1 rounded-md">
-                    May 2024 - Present
-                  </div>
-                  <div class="text-stone-400/70 text-xs md:text-sm mt-1">
-                    Hyderabad, India
-                  </div>
-                </div>
-              </div>
-              <ul class="list-none space-y-3 text-stone-200/80 text-sm md:text-base">
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="material-symbols:check-circle"
-                    class="text-green-400/80 flex-shrink-0 mt-0.5 text-lg"
-                  />
-                  <span>
-                    Developed scalable backend services by integrating RESTful APIs
-                    and leveraging cloud infrastructure, strengthening application
-                    reliability and deployment velocity.
-                  </span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="material-symbols:check-circle"
-                    class="text-green-400/80 flex-shrink-0 mt-0.5 text-lg"
-                  />
-                  <span>
-                    Utilized langchain and cloud technologies to extend application
-                    functionality through deployment of custom AI modules.
-                  </span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="material-symbols:check-circle"
-                    class="text-green-400/80 flex-shrink-0 mt-0.5 text-lg"
-                  />
-                  <span>
-                    Enhanced Chrome extension capabilities through seamless
-                    integration with cloud infrastructure and backend services
-                    utilizing NodeJS.
-                  </span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="material-symbols:check-circle"
-                    class="text-green-400/80 flex-shrink-0 mt-0.5 text-lg"
-                  />
-                  <span>
-                    Leveraged AWS cloud services to deploy, monitor, and scale
-                    high-availability applications, ensuring seamless system
-                    performance and rapid response to fluctuating workloads.
-                  </span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="material-symbols:check-circle"
-                    class="text-green-400/80 flex-shrink-0 mt-0.5 text-lg"
-                  />
-                  <span>
-                    Designed and developed internal tools including dashboards,
-                    admin panels, and analytical applications using Retool/Sigma,
-                    streamlining business operations and improving data
-                    accessibility for stakeholders.
-                  </span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="material-symbols:check-circle"
-                    class="text-green-400/80 flex-shrink-0 mt-0.5 text-lg"
-                  />
-                  <span>
-                    Implemented workflows, automations, and data validations within
-                    Retool to optimize business processes, reducing manual effort
-                    and improving operational efficiency across IT departments.
-                  </span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="material-symbols:check-circle"
-                    class="text-green-400/80 flex-shrink-0 mt-0.5 text-lg"
-                  />
-                  <span>
-                    Collaborated with cross-functional teams to gather
-                    requirements, refine specifications, and deliver customized
-                    internal tooling solutions that enhance productivity and
-                    decision-making capabilities.
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
+      <div class="flex-1 overflow-y-auto px-4 md:px-8 lg:px-10 pt-8 pb-6">
+        <!-- Section Title -->
+        <h2 class="text-3xl md:text-5xl font-heading font-bold text-white mb-2">
+          Work <span class="text-gradient">Experience</span>
+        </h2>
+        <p class="text-surface-400 text-sm font-body mb-8">
+          {{ totalYears }}+ years of building software that matters
+        </p>
 
-          <!-- HyperVerge -->
-          <div
-            class="bg-gradient-to-br from-stone-900/60 to-stone-800/40 flex flex-col md:flex-row gap-6 items-start rounded-lg p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-stone-600/30"
-          >
-            <div class="flex-shrink-0">
-              <div class="w-28 h-28 bg-white rounded-lg p-3 flex items-center justify-center shadow-md">
-                <img
-                  src="https://cdn.hyperverge.co/wp-content/uploads/2025/06/hyperverge-logo.webp"
-                  alt="HyperVerge Logo"
-                  class="w-full h-full object-contain"
-                  onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23ccc%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2214%22%3EHyperVerge%3C/text%3E%3C/svg%3E'"
-                />
-              </div>
-            </div>
-            <div class="flex-1">
-              <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-3 gap-2">
-                <div>
-                  <h3 class="text-xl md:text-2xl font-bold text-stone-100 mb-1">
-                    Automation Developer (Intern)
-                  </h3>
-                  <h4 class="text-lg md:text-xl text-stone-200/90 font-semibold">
-                    HyperVerge
-                  </h4>
-                </div>
-                <div class="flex flex-col items-start md:items-end">
-                  <div class="text-stone-300/80 text-sm md:text-base font-medium bg-stone-800/50 px-3 py-1 rounded-md">
-                    September 2023 - March 2025
-                  </div>
-                  <div class="text-stone-400/70 text-xs md:text-sm mt-1">
-                    Bangalore, India
-                  </div>
-                </div>
-              </div>
-              <ul class="list-none space-y-3 text-stone-200/80 text-sm md:text-base">
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="material-symbols:check-circle"
-                    class="text-green-400/80 flex-shrink-0 mt-0.5 text-lg"
-                  />
-                  <span>
-                    Created tools for Automation using Apps Script in a CI/CD
-                    pipeline workflow.
-                  </span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="material-symbols:check-circle"
-                    class="text-green-400/80 flex-shrink-0 mt-0.5 text-lg"
-                  />
-                  <span>
-                    Streamlined deployment processes by integrating automated
-                    testing scripts within the CI/CD pipeline, enabling faster
-                    release cycles and greater consistency across builds.
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <!-- Timeline -->
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute left-[18px] md:left-[22px] top-3 bottom-3 w-px bg-gradient-to-b from-accent/60 via-accent/30 to-surface-800/20" />
 
-          <!-- Kaay Labs -->
-          <div
-            class="bg-gradient-to-br from-stone-900/60 to-stone-800/40 flex flex-col md:flex-row gap-6 items-start rounded-lg p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-stone-600/30"
-          >
-            <div class="flex-shrink-0">
-              <div class="w-28 h-28 bg-white rounded-lg p-3 flex items-center justify-center shadow-md">
-                <img
-                  src="/images/kaay_labs.jpeg"
-                  alt="Kaay Labs Logo"
-                  class="w-full h-full object-contain"
-                  onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23ccc%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2214%22%3EKaay Labs%3C/text%3E%3C/svg%3E'"
+          <!-- Experience Cards -->
+          <div class="flex flex-col gap-8">
+            <div
+              v-for="(exp, index) in experiences"
+              :key="index"
+              class="relative flex gap-4 md:gap-6"
+            >
+              <!-- Timeline Dot -->
+              <div class="flex flex-col items-center flex-shrink-0 pt-1">
+                <div
+                  class="w-[10px] h-[10px] md:w-3 md:h-3 rounded-full border-2 z-10"
+                  :class="[
+                    index === 0
+                      ? 'bg-accent border-accent shadow-[0_0_8px_rgba(217,119,6,0.5)]'
+                      : 'bg-surface-800 border-surface-600'
+                  ]"
                 />
               </div>
-            </div>
-            <div class="flex-1">
-              <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-3 gap-2">
-                <div>
-                  <h3 class="text-xl md:text-2xl font-bold text-stone-100 mb-1">
-                    Front-end Developer
-                  </h3>
-                  <h4 class="text-lg md:text-xl text-stone-200/90 font-semibold">
-                    Kaay Labs Private Limited
-                  </h4>
+
+              <!-- Card -->
+              <div class="flex-1 glass-light rounded-xl p-4 md:p-6 hover:border-accent/20 transition-all duration-300 group">
+                <!-- Header -->
+                <div class="flex flex-col md:flex-row md:items-start gap-3 md:gap-4 mb-3">
+                  <!-- Company Logo -->
+                  <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/90 p-2 flex items-center justify-center flex-shrink-0 shadow-md">
+                    <img
+                      :src="exp.logo"
+                      :alt="`${exp.company} Logo`"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+
+                  <div class="flex-1 min-w-0">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-1">
+                      <div>
+                        <h3 class="text-base md:text-lg font-heading font-bold text-white leading-tight">
+                          {{ exp.role }}
+                        </h3>
+                        <p class="text-accent-light text-sm font-medium">{{ exp.company }}</p>
+                      </div>
+                      <div class="flex flex-wrap items-center gap-2 text-xs flex-shrink-0">
+                        <span class="px-2.5 py-1 rounded-md bg-surface-800/80 text-surface-300 font-mono whitespace-nowrap">
+                          {{ exp.duration }}
+                        </span>
+                        <span class="text-surface-500 hidden md:inline">
+                          {{ exp.location }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="flex flex-col items-start md:items-end">
-                  <div class="text-stone-300/80 text-sm md:text-base font-medium bg-stone-800/50 px-3 py-1 rounded-md">
-                    April 2022 - July 2022
-                  </div>
-                  <div class="text-stone-400/70 text-xs md:text-sm mt-1">
-                    Chennai, India
-                  </div>
+
+                <!-- Descriptions -->
+                <ul class="space-y-2 mt-3">
+                  <li
+                    v-for="(point, pIndex) in exp.points"
+                    :key="pIndex"
+                    class="flex items-start gap-2.5 text-surface-300 text-sm leading-relaxed"
+                  >
+                    <Icon
+                      name="material-symbols:arrow-right-alt"
+                      class="text-accent/60 flex-shrink-0 mt-0.5 text-sm"
+                    />
+                    <span>{{ point }}</span>
+                  </li>
+                </ul>
+
+                <!-- Tech Tags -->
+                <div v-if="exp.tech" class="flex flex-wrap gap-1.5 mt-4">
+                  <span
+                    v-for="tech in exp.tech"
+                    :key="tech"
+                    class="px-2 py-0.5 rounded text-xs font-mono text-surface-400 bg-surface-800/50"
+                  >
+                    {{ tech }}
+                  </span>
                 </div>
               </div>
-              <ul class="list-none space-y-3 text-stone-200/80 text-sm md:text-base">
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="material-symbols:check-circle"
-                    class="text-green-400/80 flex-shrink-0 mt-0.5 text-lg"
-                  />
-                  <span>
-                    Devised user-facing features utilizing frameworks such as
-                    React.js, ensuring seamless integration with backend APIs and
-                    enhancing the overall interactive experience of the web
-                    application.
-                  </span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <Icon
-                    name="material-symbols:check-circle"
-                    class="text-green-400/80 flex-shrink-0 mt-0.5 text-lg"
-                  />
-                  <span>
-                    Refined component architecture by modularizing React.js
-                    codebase, which significantly improved code reusability and
-                    maintainability for ongoing web application projects.
-                  </span>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -255,13 +104,62 @@
 </template>
 
 <script lang="ts" setup>
-const rootDiv = ref<HTMLElement | null>(null);
+interface Experience {
+  role: string;
+  company: string;
+  duration: string;
+  location: string;
+  logo: string;
+  points: string[];
+  tech?: string[];
+}
 
-onMounted(() => {
-  if (rootDiv.value) {
-    // Animation logic can be added here if needed
-  }
+const totalYears = computed(() => {
+  const start = new Date(2022, 3); // April 2022
+  const now = new Date();
+  return Math.floor((now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365));
 });
-</script>
 
-<style></style>
+const experiences: Experience[] = [
+  {
+    role: "Software / Retool Developer Engineer",
+    company: "Toolpioneers",
+    duration: "May 2024 — Present",
+    location: "Hyderabad, India",
+    logo: "https://static.wixstatic.com/media/cc867e_1dfa4e3201be415693fd297f0b183cc0~mv2.png",
+    points: [
+      "Developed scalable backend services with RESTful APIs and cloud infrastructure, improving application reliability and deployment velocity.",
+      "Deployed custom AI modules using LangChain and cloud technologies to extend application functionality.",
+      "Enhanced Chrome extension capabilities through seamless integration with backend services using Node.js.",
+      "Leveraged AWS to deploy, monitor, and scale high-availability applications for fluctuating workloads.",
+      "Built internal dashboards, admin panels, and analytical tools using Retool/Sigma, streamlining business operations.",
+      "Implemented workflows and automations within Retool, reducing manual effort across IT departments.",
+    ],
+    tech: ["Node.js", "AWS", "LangChain", "Retool", "REST APIs", "Chrome Extensions"],
+  },
+  {
+    role: "Automation Developer (Intern)",
+    company: "HyperVerge",
+    duration: "Sep 2023 — Mar 2025",
+    location: "Bangalore, India",
+    logo: "https://cdn.hyperverge.co/wp-content/uploads/2025/06/hyperverge-logo.webp",
+    points: [
+      "Created automation tools using Apps Script within CI/CD pipeline workflows.",
+      "Streamlined deployment processes by integrating automated testing scripts, enabling faster release cycles and greater build consistency.",
+    ],
+    tech: ["Apps Script", "CI/CD", "Automated Testing"],
+  },
+  {
+    role: "Front-end Developer",
+    company: "Kaay Labs Private Limited",
+    duration: "Apr 2022 — Jul 2022",
+    location: "Chennai, India",
+    logo: "/images/kaay_labs.jpeg",
+    points: [
+      "Built user-facing features with React.js, ensuring seamless integration with backend APIs and enhancing the interactive experience.",
+      "Modularized the React.js codebase, significantly improving code reusability and maintainability across ongoing projects.",
+    ],
+    tech: ["React.js", "JavaScript", "REST APIs"],
+  },
+];
+</script>
