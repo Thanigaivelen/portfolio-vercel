@@ -1,65 +1,50 @@
-# 3D Portfolio Template 🌐✨
+# Thani — cinematic studio portfolio
 
-**3D Portfolio Template** is an interactive and visually engaging personal portfolio website built with **Nuxt.js**, **Tailwind CSS**, and **Three.js**.  
-The project showcases a creative way to present your personal profile, projects, and skills using smooth animations and real-time 3D graphics.
+A Nuxt 3 / Vue / Three.js portfolio with a handcrafted interactive developer studio.
 
----
+## Run locally
 
-## 🚀 Technologies Used
+Requires Node.js 22.17 or newer for the geometry tests.
 
-- **[Nuxt.js](https://nuxt.com/)** – Vue-based framework for building performant and scalable web applications  
-- **[Tailwind CSS](https://tailwindcss.com/)** – Utility-first CSS framework for styling  
-- **[Three.js](https://threejs.org/)** – JavaScript 3D library for creating and rendering 3D scenes in the browser
-
----
-
-## 🎯 Features
-
-- 🌀 Interactive 3D landing section  
-- 📱 Fully responsive design  
-- 🎨 Smooth transitions and animations  
-- 🧑‍💻 Sections for About, Skills, Projects, and Contact  
-- 🧩 Easily customizable content and assets
-
----
-
-## 📝 Notes
-
-This project serves as a creative 3D portfolio template for developers or designers who want to make a memorable impression.  
-It combines modern frontend development tools with immersive 3D visuals to elevate a traditional portfolio site.
-
----
-
-## 🔧 Getting Started
-
-```bash
-# Clone the repository
-git clone https://github.com/Thanigaivelen/portfolio-vercel.git
-cd 3D-Portfolio
-
-# Install dependencies
+```sh
 npm install
-
-# Run the development server
 npm run dev
 ```
 
-Then open `http://localhost:3000` in your browser.
+Open the local URL printed by Nuxt. For an explicit port on Windows:
 
----
+```sh
+node node_modules/@nuxt/cli/bin/nuxi.mjs dev --host 127.0.0.1 --port 3001
+```
 
-## 🚀 Deployment
+## Verify
 
-### Deploy to Vercel
+```sh
+npm test
+npm run build
+```
 
-This project is configured for easy deployment to Vercel:
+The production build retains the existing Vercel Nitro preset. No deployment has been made.
 
-1. Push your code to GitHub/GitLab/Bitbucket
-2. Import your repository on [Vercel](https://vercel.com)
-3. Vercel will auto-detect Nuxt.js and configure the build
-4. Click "Deploy"
+## Main files
 
-For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)
+- `pages/index.vue`: page content, navigation, contact links and scene controls.
+- `components/StudioScene.vue`: WebGL lifecycle, pointer interaction and accessibility fallback.
+- `utils/buildStudio.ts`: procedural room geometry.
+- `assets/css/global.css`: responsive visual design.
+- `assets/css/fonts.css`: locally hosted fonts, with licenses in `public/fonts`.
+- `tests/studio.test.mjs`: screen visibility/raycasting and geometry budget checks.
 
----
+Drag the room to rotate it. Select either monitor to reach its project. Golden hour/moonlight and motion controls support keyboard operation. OS reduced-motion preferences disable idle animation. Normal page links remain usable without WebGL.
 
+## Original project and preserved assets
+
+This redesign lives at `C:\Users\thani\OneDrive\Documents\ChatGPT\portfolio`.
+
+The original project remains at `C:\Users\thani\Downloads\my projects\portfolio\3D-Portfolio`.
+
+Unused house models, sounds, and old project attachments from the working copy are retained in the ignored `legacy-assets/` folder, outside the public site. The old unused Vue components remain for reference. The new studio uses only procedural geometry and the selected project images.
+
+Note: the original image filenames were reversed: `cos-theta.png` contains Pascal AI; `heypascal.png` contains Cos-theta. The new page and studio map them to the correct projects.
+
+LinkedIn: https://www.linkedin.com/in/thanigaivelen06122002/

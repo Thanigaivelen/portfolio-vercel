@@ -37,7 +37,7 @@ export default defineNuxtConfig({
             "Interactive 3D portfolio — Full-stack developer, AI/ML enthusiast, and automation expert.",
         },
         // Theme
-        { name: "theme-color", content: "#1c1917" },
+        { name: "theme-color", content: "#0d182a" },
       ],
       link: [
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -51,7 +51,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
     "@nuxt/eslint",
-    "@nuxt/fonts",
+
     "@nuxt/icon",
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
@@ -64,26 +64,7 @@ export default defineNuxtConfig({
     mode: "css",
     cssLayer: "base",
   },
-  fonts: {
-    families: [
-      {
-        name: "Space Grotesk",
-        provider: "google",
-        weights: [300, 400, 500, 600, 700],
-      },
-      {
-        name: "Inter",
-        provider: "google",
-        weights: [300, 400, 500, 600, 700],
-      },
-      {
-        name: "JetBrains Mono",
-        provider: "google",
-        weights: [400, 500, 700],
-      },
-    ],
-  },
-  css: ["~/assets/css/global.css"],
+  css: ["~/assets/css/fonts.css", "~/assets/css/global.css"],
 
   // Vercel deployment optimizations
   nitro: {

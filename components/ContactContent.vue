@@ -87,7 +87,7 @@ const soundStore = useSoundStore();
 
 const socialLinks = [
   { name: "GitHub", icon: "uil:github", url: "https://github.com/Thanigaivelen", external: true },
-  { name: "LinkedIn", icon: "simple-icons:linkedin", url: "https://www.linkedin.com/in/thanigaivelen-c-152666205", external: true },
+  { name: "LinkedIn", icon: "simple-icons:linkedin", url: "https://www.linkedin.com/in/thanigaivelen06122002/", external: true },
   { name: "Email", icon: "material-symbols:mail", url: "mailto:thanigaivelen2002@gmail.com", external: false },
 ];
 

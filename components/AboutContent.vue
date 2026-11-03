@@ -43,7 +43,7 @@
           </span>
 
           <a
-            href="https://www.linkedin.com/in/thanigaivelen-c-152666205"
+            href="https://www.linkedin.com/in/thanigaivelen06122002/"
             target="_blank"
             rel="noopener noreferrer"
             class="flex items-center gap-2 text-surface-300 text-sm hover:text-accent-light transition-colors"
