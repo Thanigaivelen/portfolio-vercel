@@ -102,7 +102,7 @@ const projects: Project[] = [
     description:
       "Engineered an intuitive project management solution with integrated chat, dynamic project pages, file attachments, and customizable sprint boards for enhanced workflow visualization and team productivity.",
     image: "/images/heypascal.png",
-    url: "https://rougeone.dev/",
+    url: "https://cos-theta-tawny.vercel.app/",
     tag: "SaaS Platform",
     tech: ["React", "Node.js", "MongoDB", "WebSockets", "Sprint Boards"],
   },
