@@ -101,7 +101,7 @@ const projects: Project[] = [
     title: "Cos-theta — Project Management Platform",
     description:
       "Engineered an intuitive project management solution with integrated chat, dynamic project pages, file attachments, and customizable sprint boards for enhanced workflow visualization and team productivity.",
-    image: "/images/cos-theta.png",
+    image: "/images/heypascal.png",
     url: "https://rougeone.dev/",
     tag: "SaaS Platform",
     tech: ["React", "Node.js", "MongoDB", "WebSockets", "Sprint Boards"],
@@ -110,7 +110,7 @@ const projects: Project[] = [
     title: "HeyPascal — AI-Powered EdTech",
     description:
       "Built an AI-powered EdTech platform serving teachers, students, and parents. Enables rapid lesson planning, intelligent tutoring with step-by-step explanations, and parental engagement tools with safety guardrails.",
-    image: "/images/heypascal.png",
+    image: "/images/cos-theta.png",
     url: "https://heypascal.ai",
     tag: "AI / EdTech",
     tech: ["Next.js", "LangChain", "AI Agents", "Google Workspace", "Stripe"],
